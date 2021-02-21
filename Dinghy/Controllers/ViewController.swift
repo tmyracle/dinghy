@@ -7,31 +7,38 @@
 
 import UIKit
 
-struct AssetModel {
-    let tokenId: String
-    let imageUrl: String
-    let backgroundColor: String
-    let name: String
-    let externalLink: String
-    let owner: String
-    let lastSale: String
-}
-
 class ViewController: UIViewController {
     
-    private let offSet = 10
-    private let order = "desc"
+    private var data: [Asset] = []
     
-    private var data = [AssetModel]()
-    
+    var assetManager = AssetManager()
+    let offset = 0
+    let limit = 10
+    let orderDirection = "asc"
     
     private var collectionView: UICollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        data = createFakeData()
-        
+        assetManager.delegate = self
+        //getAssetData()
+        assetManager.getAssets(offset: 0, limit: 10, orderDirection: "asc")
+        prepareCollectionView()
+        view.addSubview(collectionView!)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView?.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+    }
+   /*
+    func getAssetData() {
+        let assetResults = assetManager.getAssets(offset: offset, limit: limit, orderDirection: orderDirection)
+        data = assetResults
+    }
+ */
+    
+    func prepareCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
@@ -44,22 +51,6 @@ class ViewController: UIViewController {
         collectionView?.backgroundColor = .red
         collectionView?.contentInsetAdjustmentBehavior = .never
         collectionView?.showsVerticalScrollIndicator = false
-        view.addSubview(collectionView!)
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        collectionView?.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
-    }
-    
-    func createFakeData() -> [AssetModel] {
-        var models: [AssetModel] = []
-        for index in 0..<10 {
-            let asset = AssetModel(tokenId: "\(index)", imageUrl: "https://google.com", backgroundColor: "black", name: "Item \(index)", externalLink: "https://google.com", owner: "Tyler", lastSale: "Yesterday")
-            models.append(asset)
-        }
-        return models
     }
 
 
@@ -75,6 +66,20 @@ extension ViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AssetCollectionViewCell.identifier, for: indexPath) as! AssetCollectionViewCell
         cell.configure(with: model)
         return cell
+    }
+    
+    
+}
+
+extension ViewController: AssetManagerDelegate {
+    func didUpdateAssets(_ assetManager: AssetManager, assets: [Asset]) {
+        for asset in assets {
+            data.append(asset)
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
     }
     
     

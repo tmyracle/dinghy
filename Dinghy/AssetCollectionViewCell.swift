@@ -11,7 +11,7 @@ class AssetCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "AssetCollectionViewCell"
     
-    private var model: AssetModel?
+    private var model: Asset?
     
     private let tokenIdLabel: UILabel = {
         let label = UILabel()
@@ -22,6 +22,14 @@ class AssetCollectionViewCell: UICollectionViewCell {
     }()
     
     private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = .red
+        return label
+    }()
+    
+    private let imageUrlLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
@@ -48,22 +56,26 @@ class AssetCollectionViewCell: UICollectionViewCell {
         
         tokenIdLabel.frame = CGRect(x: width/2 - size/2, y: height / 2, width: size, height: 30)
         nameLabel.frame = CGRect(x: width/2 - size/2, y: height/2 + 50, width: size, height: 30)
+        imageUrlLabel.frame = CGRect(x: width/2 - size/2, y: height/2 + 100, width: size, height: 30)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         tokenIdLabel.text = nil
         nameLabel.text = nil
+        imageUrlLabel.text = nil
     }
     
     private func addSubviews() {
         contentView.addSubview(tokenIdLabel)
         contentView.addSubview(nameLabel)
+        contentView.addSubview(imageUrlLabel)
     }
     
-    public func configure(with model: AssetModel) {
+    public func configure(with model: Asset) {
         self.model = model
-        tokenIdLabel.text = model.tokenId
+        tokenIdLabel.text = "\(model.id)"
         nameLabel.text = model.name
+        imageUrlLabel.text = model.image_url
     }
 }
