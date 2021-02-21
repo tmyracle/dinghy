@@ -17,7 +17,7 @@ struct AssetContract: Codable {
     let owner: Int?
     let schema_name: String
     let symbol: String
-    let total_supply: Int?
+    let total_supply: String?
     let description: String?
     let external_link: String?
     let image_url: String?

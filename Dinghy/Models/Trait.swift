@@ -11,7 +11,7 @@ struct Trait: Codable {
     let trait_type: String?
     //let value: String?
     let display_type: String?
-    let max_value: Int?
+    //let max_value: Int?
     let trait_count: Int?
     let order: String?
 }
