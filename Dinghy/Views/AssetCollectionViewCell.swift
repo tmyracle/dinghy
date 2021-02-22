@@ -26,7 +26,7 @@ class AssetCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = .black
+        label.textColor = .label
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
@@ -34,14 +34,14 @@ class AssetCollectionViewCell: UICollectionViewCell {
     private let lastSaleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = .gray
+        label.textColor = .secondaryLabel
         return label
     }()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .white
+        imageView.backgroundColor = .systemBackground
         imageView.layer.cornerRadius = 24
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.gray.cgColor
@@ -51,7 +51,7 @@ class AssetCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .systemBackground
         contentView.clipsToBounds = true
         addSubviews()
     }
@@ -62,7 +62,6 @@ class AssetCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //let size = contentView.frame.size.width / 3
         let width = contentView.frame.size.width
         let height = contentView.frame.size.height
         
