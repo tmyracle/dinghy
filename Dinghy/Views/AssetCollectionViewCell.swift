@@ -27,14 +27,14 @@ class AssetCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .black
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
-    private let imageUrlLabel: UILabel = {
+    private let lastSaleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .white
-        label.backgroundColor = .red
+        label.textAlignment = .right
+        label.textColor = .gray
         return label
     }()
     
@@ -43,6 +43,8 @@ class AssetCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 24
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.gray.cgColor
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -60,35 +62,34 @@ class AssetCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size = contentView.frame.size.width / 3
+        //let size = contentView.frame.size.width / 3
         let width = contentView.frame.size.width
         let height = contentView.frame.size.height
         
-        tokenIdLabel.frame = CGRect(x: width/2 - size/2, y: height / 2, width: size, height: 30)
-        nameLabel.frame = CGRect(x: 30, y: height/4 - 50, width: width - 60, height: 30)
-        imageUrlLabel.frame = CGRect(x: width/2 - size/2, y: height/2 + 100, width: size, height: 30)
-        imageView.frame = CGRect(x: 30, y: height/4, width: width - 60, height: height / 2)
+        imageView.frame = CGRect(x: 30, y: 60, width: width - 60, height: height / 1.5)
+        nameLabel.frame = CGRect(x: 30, y: imageView.bottom + 10, width: width - 60, height: 30)
+        lastSaleLabel.frame = CGRect(x: 30, y: nameLabel.bottom + 10, width: width - 60, height: 30)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        tokenIdLabel.text = nil
         nameLabel.text = nil
-        imageUrlLabel.text = nil
+        lastSaleLabel.text = nil
     }
     
     private func addSubviews() {
-        contentView.addSubview(tokenIdLabel)
         contentView.addSubview(nameLabel)
-        contentView.addSubview(imageUrlLabel)
+        contentView.addSubview(lastSaleLabel)
         contentView.addSubview(imageView)
     }
     
     public func configure(with model: Asset) {
         self.model = model
-        tokenIdLabel.text = "\(model.id)"
         nameLabel.text = model.name
-        imageUrlLabel.text = model.image_url
+        guard let safePrice = model.last_sale?.total_price else {return}
+        let priceAsNumber = Double(safePrice)
+        let truncatedPrice = priceAsNumber! / 1000000000000000000.0
+        lastSaleLabel.text = "Last Ξ\(truncatedPrice)"
         imageView.sd_setImage(with: URL(string: model.image_url), completed: nil)
     }
 }

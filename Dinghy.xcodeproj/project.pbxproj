@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3D759A2FB219CD9A5FEB105B /* Pods_Dinghy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E2CADCC092DFF4A85767555 /* Pods_Dinghy.framework */; };
 		D7352F7625DF78EF00587A80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7352F7525DF78EF00587A80 /* AppDelegate.swift */; };
 		D7352F7825DF78EF00587A80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7352F7725DF78EF00587A80 /* SceneDelegate.swift */; };
-		D7352F7A25DF78EF00587A80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7352F7925DF78EF00587A80 /* ViewController.swift */; };
+		D7352F7A25DF78EF00587A80 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7352F7925DF78EF00587A80 /* BrowseViewController.swift */; };
 		D7352F7D25DF78EF00587A80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7352F7B25DF78EF00587A80 /* Main.storyboard */; };
 		D7352F7F25DF78F000587A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7352F7E25DF78F000587A80 /* Assets.xcassets */; };
 		D7352F8225DF78F000587A80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7352F8025DF78F000587A80 /* LaunchScreen.storyboard */; };
@@ -29,6 +29,11 @@
 		D73C0AC725E2039000EFCBBF /* LastSaleAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0AC625E2039000EFCBBF /* LastSaleAsset.swift */; };
 		D73C0ACA25E2040500EFCBBF /* PaymentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0AC925E2040500EFCBBF /* PaymentToken.swift */; };
 		D73C0ACD25E2046C00EFCBBF /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0ACC25E2046C00EFCBBF /* Transaction.swift */; };
+		D73C0AD725E310FA00EFCBBF /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0AD625E310FA00EFCBBF /* CollectionsViewController.swift */; };
+		D73C0ADA25E3110600EFCBBF /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0AD925E3110600EFCBBF /* FavoritesViewController.swift */; };
+		D73C0ADE25E3117900EFCBBF /* CollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0ADD25E3117900EFCBBF /* CollectionManager.swift */; };
+		D73C0AE125E311F700EFCBBF /* CollectionResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0AE025E311F700EFCBBF /* CollectionResults.swift */; };
+		D73C0AE625E32BAF00EFCBBF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73C0AE525E32BAF00EFCBBF /* Extensions.swift */; };
 		D765055325DF82FD008E3300 /* AssetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765055225DF82FD008E3300 /* AssetCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +44,7 @@
 		D7352F7225DF78EF00587A80 /* Dinghy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dinghy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7352F7525DF78EF00587A80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7352F7725DF78EF00587A80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7352F7925DF78EF00587A80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D7352F7925DF78EF00587A80 /* BrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		D7352F7C25DF78EF00587A80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7352F7E25DF78F000587A80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7352F8125DF78F000587A80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +64,11 @@
 		D73C0AC625E2039000EFCBBF /* LastSaleAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSaleAsset.swift; sourceTree = "<group>"; };
 		D73C0AC925E2040500EFCBBF /* PaymentToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentToken.swift; sourceTree = "<group>"; };
 		D73C0ACC25E2046C00EFCBBF /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		D73C0AD625E310FA00EFCBBF /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		D73C0AD925E3110600EFCBBF /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D73C0ADD25E3117900EFCBBF /* CollectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionManager.swift; sourceTree = "<group>"; };
+		D73C0AE025E311F700EFCBBF /* CollectionResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionResults.swift; sourceTree = "<group>"; };
+		D73C0AE525E32BAF00EFCBBF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D765055225DF82FD008E3300 /* AssetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,13 +113,13 @@
 		D7352F7425DF78EF00587A80 /* Dinghy */ = {
 			isa = PBXGroup;
 			children = (
+				D73C0AE425E32B9E00EFCBBF /* Resources */,
 				D73C0A9925E1F60700EFCBBF /* Models */,
 				D7352F8B25DF790600587A80 /* Views */,
 				D7352F8A25DF78F900587A80 /* Controllers */,
 				D7352F7525DF78EF00587A80 /* AppDelegate.swift */,
 				D7352F7725DF78EF00587A80 /* SceneDelegate.swift */,
 				D7352F8325DF78F000587A80 /* Info.plist */,
-				D765055225DF82FD008E3300 /* AssetCollectionViewCell.swift */,
 			);
 			path = Dinghy;
 			sourceTree = "<group>";
@@ -117,7 +127,9 @@
 		D7352F8A25DF78F900587A80 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D7352F7925DF78EF00587A80 /* ViewController.swift */,
+				D7352F7925DF78EF00587A80 /* BrowseViewController.swift */,
+				D73C0AD625E310FA00EFCBBF /* CollectionsViewController.swift */,
+				D73C0AD925E3110600EFCBBF /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +140,7 @@
 				D7352F7B25DF78EF00587A80 /* Main.storyboard */,
 				D7352F7E25DF78F000587A80 /* Assets.xcassets */,
 				D7352F8025DF78F000587A80 /* LaunchScreen.storyboard */,
+				D765055225DF82FD008E3300 /* AssetCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,8 +148,8 @@
 		D73C0A9925E1F60700EFCBBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D73C0A9D25E1F7FC00EFCBBF /* AssetManager.swift */,
 				D73C0AB925E1FA7B00EFCBBF /* AssetResults.swift */,
+				D73C0AE025E311F700EFCBBF /* CollectionResults.swift */,
 				D73C0A9A25E1F62100EFCBBF /* Asset.swift */,
 				D73C0AA025E1F99700EFCBBF /* AssetContract.swift */,
 				D73C0AA625E1F9AE00EFCBBF /* Owner.swift */,
@@ -154,13 +167,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D73C0AE425E32B9E00EFCBBF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D73C0A9D25E1F7FC00EFCBBF /* AssetManager.swift */,
+				D73C0ADD25E3117900EFCBBF /* CollectionManager.swift */,
+				D73C0AE525E32BAF00EFCBBF /* Extensions.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F68A86D37374CE0EDBB1EBF5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				51D29DF1F70B609082F5FB6F /* Pods-Dinghy.debug.xcconfig */,
 				0BB57AB76CE0E9C862AF2E77 /* Pods-Dinghy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -285,14 +307,19 @@
 				D73C0ACA25E2040500EFCBBF /* PaymentToken.swift in Sources */,
 				D73C0AA125E1F99700EFCBBF /* AssetContract.swift in Sources */,
 				D73C0AC125E1FEC600EFCBBF /* DisplayData.swift in Sources */,
-				D7352F7A25DF78EF00587A80 /* ViewController.swift in Sources */,
+				D7352F7A25DF78EF00587A80 /* BrowseViewController.swift in Sources */,
 				D73C0AC725E2039000EFCBBF /* LastSaleAsset.swift in Sources */,
 				D7352F7625DF78EF00587A80 /* AppDelegate.swift in Sources */,
 				D73C0ABD25E1FD8200EFCBBF /* User.swift in Sources */,
 				D73C0ACD25E2046C00EFCBBF /* Transaction.swift in Sources */,
+				D73C0AE125E311F700EFCBBF /* CollectionResults.swift in Sources */,
+				D73C0AD725E310FA00EFCBBF /* CollectionsViewController.swift in Sources */,
 				D7352F7825DF78EF00587A80 /* SceneDelegate.swift in Sources */,
 				D73C0A9B25E1F62100EFCBBF /* Asset.swift in Sources */,
+				D73C0ADE25E3117900EFCBBF /* CollectionManager.swift in Sources */,
 				D73C0AAA25E1F9BD00EFCBBF /* SellOrder.swift in Sources */,
+				D73C0ADA25E3110600EFCBBF /* FavoritesViewController.swift in Sources */,
+				D73C0AE625E32BAF00EFCBBF /* Extensions.swift in Sources */,
 				D73C0AA425E1F9A200EFCBBF /* Collection.swift in Sources */,
 				D73C0A9E25E1F7FC00EFCBBF /* AssetManager.swift in Sources */,
 				D765055325DF82FD008E3300 /* AssetCollectionViewCell.swift in Sources */,

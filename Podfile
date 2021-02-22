@@ -7,5 +7,6 @@ target 'Dinghy' do
 
   # Pods for Dinghy
   pod 'SDWebImage'
+  pod 'JGProgressHUD'
 
 end

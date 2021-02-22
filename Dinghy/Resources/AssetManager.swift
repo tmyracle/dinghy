@@ -13,12 +13,15 @@ protocol AssetManagerDelegate {
 }
 
 struct AssetManager {
-    let baseUrl = "https://api.opensea.io/api/v1/assets?"
+    let baseUrl = "https://api.opensea.io/api/v1/assets?search[categories][0]="
+    
+    let orderByOptions = ["sale_date", "sale_count", "visitor_count", "sale_price", "token_id"]
+    let orderDirection = ["asc", "desc"]
     
     var delegate: AssetManagerDelegate?
     
-    func getAssets(offset: Int, limit: Int, orderDirection: String) {
-        let urlString = "\(baseUrl)order_direction=\(orderDirection)&offset=\(offset)&limit=\(limit)"
+    func getAssets(assetType: String, offset: Int, limit: Int, orderBy: String, orderDirection: String) {
+        let urlString = "\(baseUrl)\(assetType)&order_by=\(orderBy)&order_direction=\(orderDirection)&offset=\(offset)&limit=\(limit)"
         self.performRequest(with: urlString)
     }
     
@@ -32,9 +35,6 @@ struct AssetManager {
                 }
                 if let safeData = data {
                     if let assets = self.parseJSON(safeData) {
-                        // print("\(assets.assets[0].id)")
-                        // print("\(assets.assets[0].name!)")
-                        // print("\(assets.assets[0].image_url)")
                         self.delegate?.didUpdateAssets(self, assets: assets)
                     }
                 }
